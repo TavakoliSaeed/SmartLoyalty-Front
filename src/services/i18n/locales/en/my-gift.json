@@ -1,0 +1,18 @@
+{
+  "loading": "Loading...",
+  "title": "My Gift Requests",
+  "myGifts": {
+    "title": "My Gift Requests",
+    "table": {
+      "id": "Request ID",
+      "giftId": "Gift ID",
+      "status": "Status",
+      "createdAt": "Requested At"
+    },
+    "status": {
+      "pending": "Pending",
+      "approved": "Approved",
+      "rejected": "Rejected"
+    }
+  }
+}

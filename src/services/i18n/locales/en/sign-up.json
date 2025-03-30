@@ -1,0 +1,111 @@
+{
+  "title": "Sign Up",
+  "actions": {
+    "submit": "Sign Up",
+    "accountAlreadyExists": "Already have an account?"
+  },
+  "inputs": {
+    "email": {
+      "label": "Email",
+      "validation": {
+        "required": "Email is required",
+        "invalid": "Email is not valid",
+        "server": {
+          "mustBeAValidEmailAddress": "Email is not valid",
+          "emailAlreadyExists": "Email already exists"
+        }
+      }
+    },
+    "store_name": {
+      "label": "Store Name",
+      "validation": {
+        "required": "Store Name is required",
+        "server": {
+          "invalidLength": "Store Name length is invalid"
+        }
+      }
+    },
+    "owner_name": {
+      "label": "Owner Name",
+      "validation": {
+        "required": "Owner Name is required",
+        "server": {
+          "invalidLength": "Owner Name length is invalid"
+        }
+      }
+    },
+    "mobile": {
+      "label": "Mobile",
+      "validation": {
+        "required": "Mobile is required",
+        "server": {
+          "mustContainOnlyDigits": "Mobile must contain only digits",
+          "invalidLength": "Mobile must be exactly 11 digits"
+        }
+      }
+    },
+    "landline": {
+      "label": "Landline",
+      "validation": {
+        "required": "Landline is required",
+        "server": {
+          "mustContainOnlyDigits": "Landline must contain only digits"
+        }
+      }
+    },
+    "province": {
+      "label": "Province",
+      "validation": {
+        "required": "Province is required",
+        "server": {
+          "required": "Province is required",
+          "invalid": "Province is invalid"
+        }
+      }
+    },
+    "city": {
+      "label": "City",
+      "validation": {
+        "required": "City is required",
+        "server": {
+          "required": "City is required",
+          "invalid": "City is invalid"
+        }
+      }
+    },
+    "postal_code": {
+      "label": "Postal Code",
+      "validation": {
+        "required": "Postal Code is required",
+        "server": {
+          "mustContainOnlyDigits": "Postal Code must contain only digits",
+          "invalidLength": "Postal Code must be exactly 10 digits"
+        }
+      }
+    },
+    "address": {
+      "label": "Address",
+      "validation": {
+        "required": "Address is required",
+        "server": {
+          "invalidLength": "Address must be between 5 to 255 characters"
+        }
+      }
+    },
+    "otp": {
+      "label": "OTP",
+      "validation": {
+        "required": "OTP is required",
+        "server": {
+          "missingOTP": "otp code is required",
+          "invalidOTP": "invalid otp code"
+        }
+      }
+    }
+  },
+  "dialog": {
+    "title": "Successfully signed up!",
+    "welcomeMessage": "Your sign-up was successful. We will call you soon!",
+    "close": "Close"
+  }
+}

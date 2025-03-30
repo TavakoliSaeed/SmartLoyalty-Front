@@ -1,0 +1,110 @@
+{
+  "title": "ثبت‌نام",
+  "actions": {
+    "submit": "ثبت‌نام",
+    "accountAlreadyExists": "قبلاً ثبت‌نام کرده‌اید؟"
+  },
+  "inputs": {
+    "email": {
+      "label": "ایمیل",
+      "validation": {
+        "required": "وارد کردن ایمیل الزامی است",
+        "invalid": "ایمیل وارد شده معتبر نیست",
+        "server": {
+          "mustBeAValidEmailAddress": "ایمیل وارد شده معتبر نیست",
+          "emailAlreadyExists": "ایمیل قبلاً ثبت شده است"
+        }
+      }
+    },
+    "store_name": {
+      "label": "نام فروشگاه",
+      "validation": {
+        "required": "وارد کردن نام فروشگاه الزامی است",
+        "server": {
+          "invalidLength": "طول نام فروشگاه نامعتبر است"
+        }
+      }
+    },
+    "owner_name": {
+      "label": "نام مالک",
+      "validation": {
+        "required": "وارد کردن نام مالک الزامی است",
+        "server": {
+          "invalidLength": "طول نام مالک نامعتبر است"
+        }
+      }
+    },
+    "mobile": {
+      "label": "شماره موبایل",
+      "validation": {
+        "required": "وارد کردن شماره موبایل الزامی است",
+        "server": {
+          "mustContainOnlyDigits": "شماره موبایل فقط باید شامل ارقام باشد",
+          "invalidLength": "شماره موبایل باید دقیقاً ۱۱ رقم باشد"
+        }
+      }
+    },
+    "landline": {
+      "label": "تلفن ثابت",
+      "validation": {
+        "required": "وارد کردن تلفن ثابت الزامی است",
+        "server": {
+          "mustContainOnlyDigits": "تلفن ثابت فقط باید شامل ارقام باشد"
+        }
+      }
+    },
+    "province": {
+      "label": "استان",
+      "validation": {
+        "required": "وارد کردن استان الزامی است",
+        "server": {
+          "required": "استان الزامی است",
+          "invalid": "استان نامعتبر است"
+        }
+      }
+    },
+    "city": {
+      "label": "شهر",
+      "validation": {
+        "required": "وارد کردن شهر الزامی است",
+        "server": {
+          "required": "شهر الزامی است",
+          "invalid": "شهر نامعتبر است"
+        }
+      }
+    },
+    "postal_code": {
+      "label": "کد پستی",
+      "validation": {
+        "required": "وارد کردن کد پستی الزامی است",
+        "server": {
+          "mustContainOnlyDigits": "کد پستی فقط باید شامل ارقام باشد",
+          "invalidLength": "کد پستی باید دقیقاً ۱۰ رقم باشد"
+        }
+      }
+    },
+    "address": {
+      "label": "آدرس",
+      "validation": {
+        "required": "وارد کردن آدرس الزامی است",
+        "server": {
+          "invalidLength": "طول آدرس باید بین ۵ تا ۲۵۵ کاراکتر باشد"
+        }
+      }
+    },"otp": {
+      "label": "OTP",
+      "validation": {
+        "required": "OTP is required",
+        "server": {
+          "missingOTP": "کد otp اجباری است",
+          "invalidOTP": "کد otp اشتباه است"
+        }
+      }
+    }
+  },
+  "dialog": {
+    "title": "ثبت‌نام با موفقیت انجام شد!",
+    "welcomeMessage": "ثبت‌نام شما با موفقیت انجام شد. به زودی با شما تماس خواهیم گرفت!",
+    "close": "بستن"
+  }
+}

@@ -1,0 +1,28 @@
+{
+  "title": "ثبت کدها",
+  "totalScore": "امتیاز کل",
+  "loading": "در حال بارگذاری...",
+  "actions": {
+    "registerAgain": "ثبت دوباره کد"
+  },
+  "table": {
+    "id": "شناسه",
+    "identityCode": "کد شناسایی",
+    "score": "امتیاز",
+    "scoreEarned": "امتیاز کسب‌شده"
+  },
+  "secondRegister": {
+    "title": "ثبت مجدد کد",
+    "inputs": {
+      "code": {
+        "label": "کد را وارد کنید"
+      }
+    },
+    "actions": {
+      "submit": "ثبت"
+    },
+    "errors": {
+      "default": "مشکلی پیش آمده است"
+    }
+  }
+}

@@ -1,0 +1,8 @@
+{
+  "title": "Edit unnamed",
+  "actions": { "submit": "Save", "cancel": "Cancel" },
+  "inputs": {
+    "<system>": "Do not remove this property"
+  },
+  "alerts": { "success": "Unnamed has been updated successfully" }
+}

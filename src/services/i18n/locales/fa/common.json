@@ -1,0 +1,46 @@
+{
+  "app-name": "SMART",
+  "loading": "در حال بارگذاری ...",
+  "navigation": {
+    "home": "خانه",
+    "signIn": "ورود",
+    "signUp": "ثبت‌نام",
+    "profile": "پروفایل",
+    "users": "کاربران",
+    "logout": "خروج",
+    "registrationsList": "ثبت‌نام‌ها",
+    "newRegistration": "ثبت‌نام جدید",
+    "registrations": "ثبت نام ها",
+    "gifts": "جوایز",
+    "giftsList": "جوایز",
+    "myGifts": "جوایز من"
+  },
+  "formInputs": {
+    "avatarInput": {
+      "dropzoneText": "تصویر را اینجا رها کنید ...",
+      "dragAndDrop": "یا تصویر را بکشید و اینجا رها کنید",
+      "selectFile": "انتخاب تصویر"
+    },
+    "multipleImageInput": {
+      "dropzoneText": "تصاویر را اینجا رها کنید ...",
+      "dragAndDrop": "یا تصاویر را بکشید و اینجا رها کنید",
+      "selectFile": "انتخاب تصویر"
+    },
+    "singleImageInput": {
+      "dropzoneText": "تصویر را اینجا رها کنید ...",
+      "dragAndDrop": "یا تصویر را بکشید و اینجا رها کنید",
+      "selectFile": "انتخاب تصویر"
+    }
+  },
+  "leavePage": {
+    "title": "خروج از این صفحه؟",
+    "message": "ممکن است تغییرات شما ذخیره نشوند",
+    "stay": "ماندن در صفحه",
+    "leave": "خروج از صفحه"
+  },
+  "auth": {
+    "facebook": {
+      "action": "ورود با فیسبوک"
+    }
+  }
+}

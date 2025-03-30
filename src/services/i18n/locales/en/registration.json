@@ -1,0 +1,28 @@
+{
+  "title": "Code Registrations",
+  "totalScore": "Total Score",
+  "loading": "Loading...",
+  "actions": {
+    "registerAgain": "Register a Code Again"
+  },
+  "table": {
+    "id": "ID",
+    "identityCode": "Identity Code",
+    "score": "Score",
+    "scoreEarned": "Score Earned"
+  },
+  "secondRegister": {
+    "title": "Second Registration",
+    "inputs": {
+      "code": {
+        "label": "Enter Code"
+      }
+    },
+    "actions": {
+      "submit": "Submit"
+    },
+    "errors": {
+      "default": "Something went wrong"
+    }
+  }
+}

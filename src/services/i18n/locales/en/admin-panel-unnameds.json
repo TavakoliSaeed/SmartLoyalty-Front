@@ -1,0 +1,19 @@
+{
+  "title": "Unnameds",
+  "table": {
+    "column1": "ID",
+    "<system>": "Do not remove this property"
+  },
+  "actions": {
+    "add": "Add unnamed",
+    "edit": "Edit",
+    "delete": "Delete",
+    "create": "Create unnamed"
+  },
+  "confirm": {
+    "delete": {
+      "title": "Delete unnamed",
+      "message": "Are you sure you want to delete this unnamed?"
+    }
+  }
+}

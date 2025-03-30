@@ -1,0 +1,15 @@
+{
+  "title": "پروفایل",
+  "fields": {
+    "store_name": "نام فروشگاه",
+    "owner_name": "نام مالک",
+    "email": "ایمیل",
+    "username": "نام کاربری",
+    "mobile": "شماره موبایل",
+    "landline": "تلفن ثابت",
+    "address": "آدرس",
+    "postal_code": "کد پستی",
+    "status": "وضعیت",
+    "score": "امتیاز کل"
+  }
+}

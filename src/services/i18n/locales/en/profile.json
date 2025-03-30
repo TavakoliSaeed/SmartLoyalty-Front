@@ -1,0 +1,15 @@
+{
+  "title": "Profile",
+  "fields": {
+    "store_name": "Store Name",
+    "owner_name": "Owner Name",
+    "email": "Email",
+    "username": "Username",
+    "mobile": "Mobile",
+    "landline": "Landline",
+    "address": "Address",
+    "postal_code": "Postal Code",
+    "status": "Status",
+    "score": "Total Score"
+  }
+}

@@ -1,0 +1,52 @@
+{
+  "title": "Sign In",
+  "actions": {
+    "submit": "Sign In",
+    "createAccount": "Create Account",
+    "forgotPassword": "Forgot Password?"
+  },
+  "inputs": {
+    "email": {
+      "label": "Email",
+      "validation": {
+        "required": "Email is required",
+        "invalid": "Email is not valid",
+        "server": {
+          "invalid": "invalid username or password",
+          "emailNotExists": "Email does not exist",
+          "notFound": "Email does not exist",
+          "invalidLength": "Username must be exactly 10 digits",
+          "pending": "Your account is still pending"
+        }
+      }
+    },
+    "username": {
+      "label": "Email",
+      "validation": {
+        "required": "Email is required",
+        "invalid": "Email is not valid",
+        "server": {
+          "invalid": "invalid username or password",
+          "emailNotExists": "Email does not exist",
+          "notFound": "Email does not exist",
+          "invalidLength": "Username must be exactly 10 digits",
+          "pending": "Your account is still pending",
+          "rejected": "Your account rejected"
+        }
+      }
+    },
+    "password": {
+      "label": "Password",
+      "validation": {
+        "required": "Password is required",
+        "min": "Password must be at least 6 characters long",
+        "server": {
+          "invalid": "invalid username or password",
+          "incorrectPassword": "Password is not valid",
+          "invalidLength": "Password must be exactly 10 digits"
+        }
+      }
+    }
+  },
+  "or": "OR"
+}

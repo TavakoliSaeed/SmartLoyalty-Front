@@ -1,0 +1,21 @@
+{
+  "title": "Gift List",
+  "loading": "Loading...",
+  "table": {
+    "id": "ID",
+    "code": "Code",
+    "name": "Name",
+    "requiredScore": "Required Score",
+    "actions": "Actions",
+    "request": "Request"
+  },
+  "dialog": {
+    "successTitle": "Request Successful",
+    "successMessage": "Your gift request has been submitted successfully.",
+    "ok": "OK"
+  },
+  "toast": {
+    "error": "An error occurred while requesting the gift.",
+    "notEnoughScore": "you dont have enough score to achieve this gift."
+  }
+}

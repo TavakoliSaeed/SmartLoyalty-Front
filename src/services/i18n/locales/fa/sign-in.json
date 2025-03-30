@@ -1,0 +1,32 @@
+{
+  "title": "ورود",
+  "actions": {
+    "submit": "ورود",
+    "createAccount": "ساخت حساب کاربری",
+    "forgotPassword": "رمز عبور را فراموش کرده‌اید؟"
+  },
+  "inputs": {
+    "email": {
+      "label": "نام کاربری",
+      "validation": {
+        "required": "وارد کردن نام کاربری الزامی است",
+        "invalid": "نام کاربری وارد شده معتبر نیست",
+        "server": {
+          "emailNotExists": "نام کاربری یافت نشد",
+          "notFound": "نام کاربری یافت نشد"
+        }
+      }
+    },
+    "password": {
+      "label": "رمز عبور",
+      "validation": {
+        "required": "وارد کردن رمز عبور الزامی است",
+        "min": "رمز عبور باید حداقل ۶ کاراکتر باشد",
+        "server": {
+          "incorrectPassword": "رمز عبور نادرست است"
+        }
+      }
+    }
+  },
+  "or": "یا"
+}
