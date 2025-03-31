@@ -173,6 +173,7 @@ function Form() {
             return;
         }
         const {data: dataSignUp, status: statusSignUp} = await fetchAuthSignUp(formData);
+        console.log("data",dataSignUp,statusSignUp)
         if (statusSignUp === HTTP_CODES_ENUM.UNPROCESSABLE_ENTITY) {
             (Object.keys(dataSignUp.errors) as Array<keyof SignUpFormData>).forEach((key) => {
                 setError(key, {
