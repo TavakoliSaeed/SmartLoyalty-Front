@@ -3,6 +3,7 @@ import { getServerTranslation } from "@/services/i18n";
 import Container from "@mui/material/Container";
 import Grid from "@mui/material/Grid2";
 import Typography from "@mui/material/Typography";
+import HomeAuthActions from "@/components/home-auth-actions/home-auth-actions";
 
 type Props = {
   params: Promise<{ language: string }>;
@@ -34,6 +35,7 @@ export default async function Home(props: Props) {
         <Typography variant="h3" data-testid="home-title" gutterBottom>
           {t("app-name")}
         </Typography>
+        <HomeAuthActions />
         {/*<Typography>*/}
         {/*  <Trans*/}
         {/*    i18nKey={`description`}*/}
