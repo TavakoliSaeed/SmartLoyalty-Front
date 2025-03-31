@@ -15,24 +15,16 @@ RUN npm run build
 # Stage 2: Run the app
 FROM node:22.12.0-alpine
 
-# Set working directory
 WORKDIR /app
 
-# Copy only necessary files
 COPY package.json package-lock.json* ./
-RUN npm install --omit=dev
+RUN npm install --omit=dev --ignore-scripts  # ✅ prevent prepare errors
 
-# Copy build output and required files from the builder stage
 COPY --from=builder /app/.next ./.next
 COPY --from=builder /app/public ./public
 COPY --from=builder /app/next.config.js ./next.config.js
 COPY --from=builder /app/node_modules ./node_modules
 
-# Set production environment
 ENV NODE_ENV=production
-
-# Expose the default Next.js port
 EXPOSE 3000
-
-# Start the app
 CMD ["npm", "start"]
