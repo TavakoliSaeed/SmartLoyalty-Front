@@ -23,6 +23,7 @@ type TextInputProps = {
     minRows?: number;
     maxRows?: number;
     size?: "small" | "medium";
+    placeholder?: string;
 };
 
 const TextInput = forwardRef<
@@ -70,6 +71,7 @@ const TextInput = forwardRef<
             multiline={props.multiline}
             minRows={props.minRows}
             maxRows={props.maxRows}
+            placeholder={props.placeholder}
             InputProps={{
                 readOnly: props.readOnly,
                 inputComponent: props.inputComponent,
@@ -113,6 +115,7 @@ function FormTextInput<
                     type={props.type}
                     error={fieldState.error?.message}
                     disabled={props.disabled}
+                    placeholder={props.placeholder}
                     readOnly={props.readOnly}
                     testId={props.testId}
                     multiline={props.multiline}

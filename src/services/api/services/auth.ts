@@ -76,14 +76,14 @@ export function useAuthFacebookLoginService() {
 }
 
 export type AuthSignUpRequest = {
-    email: string;
+    email?: string|null;
     owner_name: string;
     store_name: string;
     mobile: string;
-    landline: string;
+    landline?: string|null;
     province: number;
     city: number;
-    postal_code: string;
+    postal_code?: string|null;
     address: string;
 };
 
