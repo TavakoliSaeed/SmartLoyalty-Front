@@ -37,7 +37,7 @@ const useValidationSchema = () => {
       .required(t("sign-in:inputs.email.validation.required")),
     password: yup
       .string()
-      .min(8, t("sign-in:inputs.password.validation.min"))
+      .min(5, t("sign-in:inputs.password.validation.min"))
       .required(t("sign-in:inputs.password.validation.required")),
   });
 };
