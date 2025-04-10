@@ -6,7 +6,15 @@
   },
   "inputs": {
     "card_code": {
-      "label": "کد کارت"
+      "label": "کد کارت",
+      "validation": {
+        "required": "وارد کردن کد کارت الزامی است",
+        "invalid": "کد کارت وارد شده معتبر نیست",
+        "server": {
+          "invalid": "کد کارت وارد شده معتبر نیست",
+          "failed": "ثبت کد کارت ناموفق بود"
+        }
+      }
     },
     "email": {
       "label": "ایمیل",
@@ -95,7 +103,8 @@
           "invalidLength": "طول آدرس باید بین ۵ تا ۲۵۵ کاراکتر باشد"
         }
       }
-    },"otp": {
+    },
+    "otp": {
       "label": "OTP",
       "validation": {
         "required": "OTP is required",
