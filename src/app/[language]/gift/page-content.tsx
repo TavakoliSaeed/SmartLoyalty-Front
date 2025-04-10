@@ -94,12 +94,10 @@ function GiftListPage() {
             <Typography>{t("loading")}</Typography>
         ) : (
             <Paper>
-              <Box sx={{ width: "100%", overflowX: "auto" }}>
-                <Table sx={{ minWidth: 600 }}>
+              <Box sx={{ width: "100%"}}>
+                <Table>
                   <TableHead>
                     <TableRow>
-                      <TableCell>{t("table.id")}</TableCell>
-                      <TableCell>{t("table.code")}</TableCell>
                       <TableCell>{t("table.name")}</TableCell>
                       <TableCell>{t("table.requiredScore")}</TableCell>
                       <TableCell>{t("table.actions")}</TableCell>
@@ -108,8 +106,6 @@ function GiftListPage() {
                   <TableBody>
                     {gifts.map((gift) => (
                         <TableRow key={gift.ID}>
-                          <TableCell>{gift.ID}</TableCell>
-                          <TableCell>{gift.Code}</TableCell>
                           <TableCell>{gift.Name}</TableCell>
                           <TableCell>{gift.RequiredScore}</TableCell>
                           <TableCell>

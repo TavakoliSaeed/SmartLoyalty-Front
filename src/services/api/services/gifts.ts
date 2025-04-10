@@ -54,6 +54,7 @@ export type MyGiftRequest = {
   ID: number;
   GiftID: number;
   GiftCode: string;
+  GiftName: string;
   FinalSellerID: number;
   Status: "pending" | "approved" | "rejected";
   CreatedAt: string;

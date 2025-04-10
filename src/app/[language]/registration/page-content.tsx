@@ -77,25 +77,21 @@ function RegistrationsPage() {
         {loading ? (
             <Typography>{t("loading")}</Typography>
         ) : (
-            <Box sx={{ width: "100%", overflowX: "auto" }}>
-                <Paper sx={{ minWidth: 600 }}>
+            <Box sx={{ width: "100%"}}>
+                <Paper>
                     <Table>
                         <TableHead>
                             <TableRow>
-                                <TableCell>{t("table.id")}</TableCell>
-                                <TableCell>{t("table.identityCode")}</TableCell>
-                                <TableCell>{t("table.score")}</TableCell>
-                                <TableCell>{t("table.scoreEarned")}</TableCell>
+                                <TableCell align={"center"}>{t("table.identityCode")}</TableCell>
+                                <TableCell align={"center"}>{t("table.score")}</TableCell>
                             </TableRow>
                         </TableHead>
                         <TableBody>
                             {registrations.length > 0 &&
                                 registrations.map((reg) => (
                                     <TableRow key={reg.ID}>
-                                        <TableCell>{reg.ID}</TableCell>
-                                        <TableCell>{reg.code?.IdentityCode}</TableCell>
-                                        <TableCell>{reg.code?.Score}</TableCell>
-                                        <TableCell>{reg.score_earned}</TableCell>
+                                        <TableCell align={"center"}>{reg.code?.IdentityCode}</TableCell>
+                                        <TableCell align={"center"}>{reg.code?.Score}</TableCell>
                                     </TableRow>
                                 ))}
                         </TableBody>

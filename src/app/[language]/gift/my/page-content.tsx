@@ -18,6 +18,7 @@ export type MyGiftRequest = {
   ID: number;
   GiftID: number;
   GiftCode: string;
+  GiftName: string;
   FinalSellerID: number;
   Status: string;
   CreatedAt: string;
@@ -51,13 +52,12 @@ function MyGiftRequestsPage() {
       </Typography>
 
       {!loading && (
-          <Box sx={{ width: "100%", overflowX: "auto" }}>
-            <Paper sx={{ minWidth: 600 }}>
+          <Box sx={{ width: "100%"}}>
+            <Paper>
               <Table>
                 <TableHead>
                   <TableRow>
-                    <TableCell>{t("myGifts.table.id")}</TableCell>
-                    <TableCell>{t("myGifts.table.giftId")}</TableCell>
+                    <TableCell>{t("myGifts.table.giftName")}</TableCell>
                     <TableCell>{t("myGifts.table.status")}</TableCell>
                     <TableCell>{t("myGifts.table.createdAt")}</TableCell>
                   </TableRow>
@@ -65,8 +65,7 @@ function MyGiftRequestsPage() {
                 <TableBody>
                   {requests.map((req) => (
                       <TableRow key={req.ID}>
-                        <TableCell>{req.ID}</TableCell>
-                        <TableCell>{req.GiftCode}</TableCell>
+                        <TableCell>{req.GiftName}</TableCell>
                         <TableCell>{t(`myGifts.status.${req.Status}`)}</TableCell>
                         <TableCell>
                           {new Date(req.CreatedAt).toLocaleString()}
