@@ -2,9 +2,9 @@
 "use client";
 
 import Button from "@mui/material/Button";
-import { withPageRequiredGuestSignUp } from "@/services/auth/with-page-required-guest";
-import { FormProvider, useForm, useFormState, useWatch, Controller } from "react-hook-form";
-import { SendOtpResponse, useAuthSignUpService, useSendOtpService } from "@/services/api/services/auth";
+import {withPageRequiredGuestSignUp} from "@/services/auth/with-page-required-guest";
+import {Controller, FormProvider, useForm, useFormState, useWatch} from "react-hook-form";
+import {SendOtpResponse, useAuthSignUpService, useSendOtpService} from "@/services/api/services/auth";
 import useAuthActions from "@/services/auth/use-auth-actions";
 import useAuthTokens from "@/services/auth/use-auth-tokens";
 import Container from "@mui/material/Container";
@@ -12,19 +12,19 @@ import Grid from "@mui/material/Grid2";
 import Typography from "@mui/material/Typography";
 import FormTextInput from "@/components/form/text-input/form-text-input";
 import * as yup from "yup";
-import { yupResolver } from "@hookform/resolvers/yup";
+import {yupResolver} from "@hookform/resolvers/yup";
 import Link from "@/components/link";
 import Box from "@mui/material/Box";
 import HTTP_CODES_ENUM from "@/services/api/types/http-codes";
-import { useTranslation } from "@/services/i18n/client";
+import {useTranslation} from "@/services/i18n/client";
 import Dialog from "@mui/material/Dialog";
 import DialogTitle from "@mui/material/DialogTitle";
 import DialogContent from "@mui/material/DialogContent";
 import DialogActions from "@mui/material/DialogActions";
-import { useEffect, useState } from "react";
-import { useRouter } from "next/navigation";
-import { fallbackLanguage } from "@/services/i18n/config";
-import { useGetProvincesWithCitiesService } from "@/services/api/services/geo";
+import {useEffect, useState} from "react";
+import {useRouter} from "next/navigation";
+import {fallbackLanguage} from "@/services/i18n/config";
+import {useGetProvincesWithCitiesService} from "@/services/api/services/geo";
 import MenuItem from "@mui/material/MenuItem";
 import TextField from "@mui/material/TextField";
 import Snackbar from "@mui/material/Snackbar";
@@ -47,10 +47,11 @@ type SignUpFormData = {
     address: string;
     mobile: string;
     otp: string;
+    card_code: string;
 };
 
 const useValidationSchema = () => {
-    const { t } = useTranslation("sign-up");
+    const {t} = useTranslation("sign-up");
     return yup.object().shape({
         email: yup.string().nullable().notRequired().email(t("sign-up:inputs.email.validation.invalid")),
         owner_name: yup.string().required(t("sign-up:inputs.owner_name.validation.required")),
@@ -62,12 +63,13 @@ const useValidationSchema = () => {
         address: yup.string().required(t("sign-up:inputs.address.validation.required")),
         mobile: yup.string().matches(/^\d+$/, "فقط عدد مجاز است").required(t("sign-up:inputs.mobile.validation.required")),
         otp: yup.string().matches(/^\d+$/, "فقط عدد مجاز است").required("وارد کردن کد تایید الزامی است"),
+        card_code: yup.string().required("کد کارت الزامی است"), // or use `required(...)` if you want it mandatory
     });
 };
 
 function FormActions() {
-    const { t } = useTranslation("sign-up");
-    const { isSubmitting } = useFormState();
+    const {t} = useTranslation("sign-up");
+    const {isSubmitting} = useFormState();
     return (
         <Button variant="contained" color="primary" type="submit" disabled={isSubmitting} fullWidth>
             {t("sign-up:actions.submit")}
@@ -76,10 +78,10 @@ function FormActions() {
 }
 
 function Form() {
-    const { setUser } = useAuthActions();
-    const { setTokensInfo } = useAuthTokens();
+    const {setUser} = useAuthActions();
+    const {setTokensInfo} = useAuthTokens();
     const fetchAuthSignUp = useAuthSignUpService();
-    const { t } = useTranslation("sign-up");
+    const {t} = useTranslation("sign-up");
     const [open, setOpen] = useState(false);
     const [toastMessage, setToastMessage] = useState<string | null>(null);
     const router = useRouter();
@@ -122,17 +124,18 @@ function Form() {
             owner_name: "",
             store_name: "",
             landline: "",
-            province: 0,
-            city: 0,
+            // province: 0,
+            // city: 0,
             postal_code: "",
             address: "",
             mobile: "",
             otp: "",
+            card_code: "",
         },
     });
 
-    const { handleSubmit, setError, control, getValues } = methods;
-    const selectedProvince = useWatch({ control, name: "province" });
+    const {handleSubmit, setError, control, getValues} = methods;
+    const selectedProvince = useWatch({control, name: "province"});
     const cities = provinces.find((p) => p.id === selectedProvince)?.cities || [];
 
     const sendOtp = useSendOtpService();
@@ -142,7 +145,7 @@ function Form() {
         if (!mobile || otpCooldown > 0) return;
 
         try {
-            const { data } = await sendOtp(mobile);
+            const {data} = await sendOtp(mobile);
             if ((data as SendOtpResponse)?.sent === "true") {
                 localStorage.setItem("otpSentAt", Date.now().toString());
                 setOtpCooldown(120);
@@ -169,9 +172,10 @@ function Form() {
             setToastMessage("ابتدا کد تایید را ارسال و وارد کنید");
             return;
         }
-        const { data: dataSignUp, status: statusSignUp } = await fetchAuthSignUp(formData);
+        const {data: dataSignUp, status: statusSignUp} = await fetchAuthSignUp(formData);
         if (statusSignUp === HTTP_CODES_ENUM.UNPROCESSABLE_ENTITY) {
             (Object.keys(dataSignUp.errors) as Array<keyof SignUpFormData>).forEach((key) => {
+                console.log(`sign-up:inputs.${key}.validation.server.${dataSignUp.errors[key]}`)
                 setError(key, {
                     type: "manual",
                     message: t(`sign-up:inputs.${key}.validation.server.${dataSignUp.errors[key]}`),
@@ -189,23 +193,30 @@ function Form() {
             <Container maxWidth="sm">
                 <form onSubmit={onSubmit}>
                     <Grid container spacing={2} mb={2}>
-                        <Grid size={{xs:12}} mt={2}>
+                        <Grid size={{xs: 12}} mt={2}>
                             <Typography variant="h6" textAlign="center">
                                 {t("sign-up:title")}
                             </Typography>
                         </Grid>
 
-                        <Grid size={{xs:12,md:6}}><FormTextInput name="email" label={t("sign-up:inputs.email.label")} type="email" /></Grid>
-                        <Grid size={{xs:12,md:6}}><FormTextInput name="store_name" label={t("sign-up:inputs.store_name.label")} /></Grid>
-                        <Grid size={{xs:12,md:6}}><FormTextInput name="owner_name" label={t("sign-up:inputs.owner_name.label")} /></Grid>
-                        <Grid size={{xs:12,md:6}}><FormTextInput name="landline" label={t("sign-up:inputs.landline.label")} type="number" /></Grid>
+                        <Grid size={{xs: 12, md: 6}}><FormTextInput name="email" label={t("sign-up:inputs.email.label")}
+                                                                    type="email"/></Grid>
+                        <Grid size={{xs: 12, md: 6}}><FormTextInput name="store_name"
+                                                                    label={t("sign-up:inputs.store_name.label")}/></Grid>
+                        <Grid size={{xs: 12, md: 6}}><FormTextInput name="owner_name"
+                                                                    label={t("sign-up:inputs.owner_name.label")}/></Grid>
+                        <Grid size={{xs: 12, md: 6}}><FormTextInput name="landline"
+                                                                    label={t("sign-up:inputs.landline.label")}
+                                                                    type="number"/></Grid>
 
-                        <Grid size={{xs:12,md:6}}>
+                        <Grid size={{xs: 12, md: 6}}>
                             <Controller
                                 name="province"
                                 control={control}
-                                render={({ field }) => (
-                                    <TextField select fullWidth label={t("sign-up:inputs.province.label")} {...field}>
+                                render={({field, fieldState}) => (
+                                    <TextField select fullWidth label={t("sign-up:inputs.province.label")} {...field}
+                                               error={!!fieldState.error}
+                                               helperText={fieldState.error?.message}>
                                         {provinces.map((prov) => (
                                             <MenuItem key={prov.id} value={prov.id}>{prov.name}</MenuItem>
                                         ))}
@@ -214,12 +225,14 @@ function Form() {
                             />
                         </Grid>
 
-                        <Grid size={{xs:12,md:6}}>
+                        <Grid size={{xs: 12, md: 6}}>
                             <Controller
                                 name="city"
                                 control={control}
-                                render={({ field }) => (
-                                    <TextField select fullWidth label={t("sign-up:inputs.city.label")} {...field}>
+                                render={({field, fieldState}) => (
+                                    <TextField select fullWidth label={t("sign-up:inputs.city.label")} {...field}
+                                               error={!!fieldState.error}
+                                               helperText={fieldState.error?.message}>
                                         {cities.map((city) => (
                                             <MenuItem key={city.id} value={city.id}>{city.name}</MenuItem>
                                         ))}
@@ -228,14 +241,23 @@ function Form() {
                             />
                         </Grid>
 
-                        <Grid size={{xs:12,md:6}}><FormTextInput name="postal_code" label={t("sign-up:inputs.postal_code.label")} type="number" /></Grid>
-                        <Grid size={{xs:12}}><FormTextInput name="address" label={t("sign-up:inputs.address.label")} /></Grid>
-                        <Grid size={{xs:12}}><FormTextInput name="mobile" label={t("sign-up:inputs.mobile.label")} type="number" placeholder="09128792213" /></Grid>
+                        <Grid size={{xs: 12, md: 6}}><FormTextInput name="postal_code"
+                                                                    label={t("sign-up:inputs.postal_code.label")}
+                                                                    type="number"/></Grid>
+                        <Grid size={{ xs: 12, md: 6 }}>
+                            <FormTextInput name="card_code" label={t("sign-up:inputs.card_code.label")} />
+                            <Typography variant="caption" color="error" mt={0.5}>
+                                لطفا کد یکی از کارت هایی که دارید را برای ثبت نام وارد کنید
+                            </Typography>
+                        </Grid>
+                        <Grid size={{xs: 12}}><FormTextInput name="address" label={t("sign-up:inputs.address.label")}/></Grid>
+                        <Grid size={{xs: 12}}><FormTextInput name="mobile" label={t("sign-up:inputs.mobile.label")}
+                                                             type="number" placeholder="09128792213"/></Grid>
 
-                        <Grid size={{xs:12}}>
+                        <Grid size={{xs: 12}}>
                             <Box display="flex" alignItems="center" gap={2}>
-                                <FormTextInput name="otp" label="کد تایید" type="number" />
-                                <Button variant="outlined" onClick={async ()=>{
+                                <FormTextInput name="otp" label="کد تایید" type="number"/>
+                                <Button variant="outlined" onClick={async () => {
                                     if (!getValues("mobile") || otpCooldown > 0) {
                                         setToastMessage("شماره موبایل خود را کامل کنین و پس از اتمام ۲ دقیقه دوباره تلاش کنید")
                                         return
@@ -247,8 +269,8 @@ function Form() {
                             </Box>
                         </Grid>
 
-                        <Grid size={{xs:12}}>
-                            <FormActions />
+                        <Grid size={{xs: 12}}>
+                            <FormActions/>
                             <Box mt={1} textAlign="center">
                                 <Button variant="text" color="inherit" LinkComponent={Link} href="/sign-in">
                                     {t("sign-up:actions.accountAlreadyExists")}
@@ -273,9 +295,9 @@ function Form() {
                 open={!!toastMessage}
                 autoHideDuration={4000}
                 onClose={() => setToastMessage(null)}
-                anchorOrigin={{ vertical: "bottom", horizontal: "center" }}
+                anchorOrigin={{vertical: "bottom", horizontal: "center"}}
             >
-                <Alert onClose={() => setToastMessage(null)} severity="info" sx={{ width: "100%" }}>
+                <Alert onClose={() => setToastMessage(null)} severity="info" sx={{width: "100%"}}>
                     {toastMessage}
                 </Alert>
             </Snackbar>
@@ -284,7 +306,7 @@ function Form() {
 }
 
 function SignUp() {
-    return <Form />;
+    return <Form/>;
 }
 
 export default withPageRequiredGuestSignUp(SignUp);

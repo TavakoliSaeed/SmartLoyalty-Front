@@ -5,6 +5,9 @@
     "accountAlreadyExists": "قبلاً ثبت‌نام کرده‌اید؟"
   },
   "inputs": {
+    "card_code": {
+      "label": "کد کارت"
+    },
     "email": {
       "label": "ایمیل",
       "validation": {

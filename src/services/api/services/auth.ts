@@ -85,6 +85,7 @@ export type AuthSignUpRequest = {
     city: number;
     postal_code?: string|null;
     address: string;
+    card_code: string;
 };
 
 export type AuthSignUpResponse = void;
