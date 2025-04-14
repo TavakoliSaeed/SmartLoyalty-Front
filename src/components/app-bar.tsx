@@ -55,24 +55,28 @@ function ResponsiveAppBar() {
         <AppBar position="static">
             <Container maxWidth="xl">
                 <Toolbar disableGutters>
-                    <Typography
-                        variant="h6"
-                        noWrap
-                        component="a"
+                    <Box
+                        component="a" // or use <Link> if you prefer
                         href="/"
                         sx={{
                             mr: 2,
                             display: { xs: "flex", md: "flex" },
-                            fontFamily: "monospace",
-                            fontWeight: 700,
-                            letterSpacing: ".3rem",
+                            alignItems: "center",
                             color: "inherit",
                             textDecoration: "none",
                         }}
                     >
-                        {t("common:app-name")}
-                    </Typography>
-
+                        <Box
+                            component="img"
+                            sx={{
+                                // Adjust these sizes as needed
+                                height: { xs: 30, sm: 35, md: 40 },
+                                width: "auto",
+                            }}
+                            alt="Smart Optik Logo"
+                            src="/images/logo.png" // Update with your actual path
+                        />
+                    </Box>
                     {/* Mobile Menu Icon */}
                     {isLoaded && user && (
                         <Box sx={{ flexGrow: 1, display: { xs: "flex", md: "none" } }}>
