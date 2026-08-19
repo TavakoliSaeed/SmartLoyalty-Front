@@ -94,7 +94,9 @@ function MultipleSelectExtendedInputRaw<T extends object>(
   return (
     <ClickAwayListener onClickAway={() => setIsOpen(false)}>
       <div>
-        <Box mb={0.5} ref={boxRef}>
+        <Box ref={boxRef} sx={{
+          mb: 0.5
+        }}>
           <TextField
             ref={ref}
             name={props.name}
@@ -134,7 +136,9 @@ function MultipleSelectExtendedInputRaw<T extends object>(
               }}
             >
               {props.isSearchable && (
-                <Box p={2}>
+                <Box sx={{
+                  p: 2
+                }}>
                   <TextField
                     placeholder={props.searchPlaceholder}
                     value={props.search}

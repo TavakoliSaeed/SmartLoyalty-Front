@@ -38,7 +38,7 @@ export default function GoogleAuth() {
 
   return (
     <>
-      <GoogleLogin onSuccess={onSuccess} locale={language} />
+      <GoogleLogin onSuccess={onSuccess} />
       <FullPageLoader isLoading={isLoading} />
     </>
   );

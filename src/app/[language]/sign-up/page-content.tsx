@@ -8,7 +8,7 @@ import {SendOtpResponse, useAuthSignUpService, useSendOtpService} from "@/servic
 import useAuthActions from "@/services/auth/use-auth-actions";
 import useAuthTokens from "@/services/auth/use-auth-tokens";
 import Container from "@mui/material/Container";
-import Grid from "@mui/material/Grid2";
+import Grid from "@mui/material/Grid";
 import Typography from "@mui/material/Typography";
 import FormTextInput from "@/components/form/text-input/form-text-input";
 import * as yup from "yup";
@@ -192,9 +192,15 @@ function Form() {
         <FormProvider {...methods}>
             <Container maxWidth="sm">
                 <form onSubmit={onSubmit}>
-                    <Grid container spacing={2} mb={2}>
-                        <Grid size={{xs: 12}} mt={2}>
-                            <Typography variant="h6" textAlign="center">
+                    <Grid container spacing={2} sx={{
+                        mb: 2
+                    }}>
+                        <Grid size={{xs: 12}} sx={{
+                            mt: 2
+                        }}>
+                            <Typography variant="h6" sx={{
+                                textAlign: "center"
+                            }}>
                                 {t("sign-up:title")}
                             </Typography>
                         </Grid>
@@ -246,7 +252,9 @@ function Form() {
                                                                     type="number"/></Grid>
                         <Grid size={{ xs: 12, md: 6 }}>
                             <FormTextInput name="card_code" label={t("sign-up:inputs.card_code.label")} />
-                            <Typography variant="caption" color="error" mt={0.5}>
+                            <Typography variant="caption" color="error" sx={{
+                                mt: 0.5
+                            }}>
                                 لطفا کد یکی از کارت هایی که دارید را برای ثبت نام وارد کنید
                             </Typography>
                         </Grid>
@@ -255,7 +263,12 @@ function Form() {
                                                              type="number" placeholder="09128792213"/></Grid>
 
                         <Grid size={{xs: 12}}>
-                            <Box display="flex" alignItems="center" gap={2}>
+                            <Box
+                                sx={{
+                                    display: "flex",
+                                    alignItems: "center",
+                                    gap: 2
+                                }}>
                                 <FormTextInput name="otp" label="کد تایید" type="number"/>
                                 <Button variant="outlined" onClick={async () => {
                                     if (!getValues("mobile") || otpCooldown > 0) {
@@ -271,7 +284,11 @@ function Form() {
 
                         <Grid size={{xs: 12}}>
                             <FormActions/>
-                            <Box mt={1} textAlign="center">
+                            <Box
+                                sx={{
+                                    mt: 1,
+                                    textAlign: "center"
+                                }}>
                                 <Button variant="text" color="inherit" LinkComponent={Link} href="/sign-in">
                                     {t("sign-up:actions.accountAlreadyExists")}
                                 </Button>

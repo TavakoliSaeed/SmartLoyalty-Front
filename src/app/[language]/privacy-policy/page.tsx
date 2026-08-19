@@ -34,38 +34,49 @@ async function PrivacyPolicy(props: Props) {
       >
         {t("title")}
       </Typography>
-      <Typography gutterBottom paragraph>
+      <Typography gutterBottom sx={{
+        marginBottom: "16px"
+      }}>
         {t("lastUpdated")}
       </Typography>
       <Typography
         data-testid="privacy-policy-description"
         gutterBottom
-        paragraph
+        sx={{
+          marginBottom: "16px"
+        }}
       >
         {t("description1")}
       </Typography>
-      <Typography gutterBottom paragraph>
+      <Typography gutterBottom sx={{
+        marginBottom: "16px"
+      }}>
         {t("description2")}
       </Typography>
       <Typography
         component="h2"
         variant="h3"
-        letterSpacing="-0.02em"
         gutterBottom
-        sx={{ mt: 7 }}
-      >
+        sx={{
+          letterSpacing: "-0.02em",
+          mt: 7
+        }}>
         {t("interpretation_and_definitions")}
       </Typography>
       <Typography component="h3" variant="h4" gutterBottom sx={{ mt: 5 }}>
         {t("interpretation")}
       </Typography>
-      <Typography gutterBottom paragraph>
+      <Typography gutterBottom sx={{
+        marginBottom: "16px"
+      }}>
         {t("interpretation_description")}
       </Typography>
       <Typography component="h3" variant="h4" gutterBottom sx={{ mt: 5 }}>
         {t("definitions")}
       </Typography>
-      <Typography gutterBottom paragraph>
+      <Typography gutterBottom sx={{
+        marginBottom: "16px"
+      }}>
         {t("definitions_description")}
       </Typography>
       <List sx={{ listStyleType: "disc", pl: 5, mb: 6 }}>
@@ -125,7 +136,9 @@ async function PrivacyPolicy(props: Props) {
         component="h2"
         variant="h3"
         gutterBottom
-        letterSpacing="-0.02em"
+        sx={{
+          letterSpacing: "-0.02em"
+        }}
       >
         {t("collecting_and_using_personal_data")}
       </Typography>
@@ -141,7 +154,9 @@ async function PrivacyPolicy(props: Props) {
       <Typography component="h4" variant="h5" gutterBottom>
         {t("personal_data")}
       </Typography>
-      <Typography gutterBottom paragraph>
+      <Typography gutterBottom sx={{
+        marginBottom: "16px"
+      }}>
         {t("personal_data_description")}
       </Typography>
       <List sx={{ listStyleType: "disc", pl: 5, mb: 3 }}>
@@ -150,19 +165,27 @@ async function PrivacyPolicy(props: Props) {
       <Typography component="h4" variant="h5" gutterBottom>
         {t("usage_data")}
       </Typography>
-      <Typography gutterBottom paragraph>
+      <Typography gutterBottom sx={{
+        marginBottom: "16px"
+      }}>
         {t("usage_data_auto_collected")}
       </Typography>
-      <Typography gutterBottom paragraph>
+      <Typography gutterBottom sx={{
+        marginBottom: "16px"
+      }}>
         {t("mobile_device_info_collection")}
       </Typography>
-      <Typography gutterBottom paragraph>
+      <Typography gutterBottom sx={{
+        marginBottom: "16px"
+      }}>
         {t("browser_info_collection")}
       </Typography>
       <Typography component="h4" variant="h5" gutterBottom sx={{ mt: 5 }}>
         {t("tracking_technologies_and_cookies")}
       </Typography>
-      <Typography gutterBottom paragraph>
+      <Typography gutterBottom sx={{
+        marginBottom: "16px"
+      }}>
         {t("tracking_technologies_and_cookies_description")}
       </Typography>
       <List sx={{ listStyleType: "disc", pl: 5 }}>
@@ -174,57 +197,96 @@ async function PrivacyPolicy(props: Props) {
           <strong>{t("web_beacons")}</strong> {t("web_beacons_description")}
         </ListItem>
       </List>
-      <Typography gutterBottom paragraph>
+      <Typography gutterBottom sx={{
+        marginBottom: "16px"
+      }}>
         {t("cookies_paragraph")}
       </Typography>
-      <Typography gutterBottom paragraph>
+      <Typography gutterBottom sx={{
+        marginBottom: "16px"
+      }}>
         {t("purpose_of_cookies")}
       </Typography>
       <List sx={{ listStyleType: "disc", pl: 5 }}>
         <ListItem sx={{ display: "list-item" }}>
-          <Typography gutterBottom paragraph sx={{ fontWeight: "bold" }}>
+          <Typography
+            gutterBottom
+            sx={{
+              fontWeight: "bold",
+              marginBottom: "16px"
+            }}>
             {t("necessary_cookies_title")}
           </Typography>
-          <Typography gutterBottom paragraph>
+          <Typography gutterBottom sx={{
+            marginBottom: "16px"
+          }}>
             {t("session_cookies")}
           </Typography>
-          <Typography gutterBottom paragraph>
+          <Typography gutterBottom sx={{
+            marginBottom: "16px"
+          }}>
             {t("administered_by")}
           </Typography>
-          <Typography gutterBottom paragraph>
+          <Typography gutterBottom sx={{
+            marginBottom: "16px"
+          }}>
             {t("necessary_cookies_purpose")}
           </Typography>
         </ListItem>
         <ListItem sx={{ display: "list-item" }}>
-          <Typography gutterBottom paragraph sx={{ fontWeight: "bold" }}>
+          <Typography
+            gutterBottom
+            sx={{
+              fontWeight: "bold",
+              marginBottom: "16px"
+            }}>
             {t("cookies_policy_title")}
           </Typography>
-          <Typography gutterBottom paragraph>
+          <Typography gutterBottom sx={{
+            marginBottom: "16px"
+          }}>
             {t("persistent_cookies")}
           </Typography>
-          <Typography gutterBottom paragraph>
+          <Typography gutterBottom sx={{
+            marginBottom: "16px"
+          }}>
             {t("administered_by")}
           </Typography>
-          <Typography gutterBottom paragraph>
+          <Typography gutterBottom sx={{
+            marginBottom: "16px"
+          }}>
             {t("cookies_policy_purpose")}
           </Typography>
         </ListItem>
         <ListItem sx={{ display: "list-item" }}>
-          <Typography gutterBottom paragraph sx={{ fontWeight: "bold" }}>
+          <Typography
+            gutterBottom
+            sx={{
+              fontWeight: "bold",
+              marginBottom: "16px"
+            }}>
             {t("functionality_cookies_title")}
           </Typography>
-          <Typography gutterBottom paragraph>
+          <Typography gutterBottom sx={{
+            marginBottom: "16px"
+          }}>
             {t("persistent_cookies")}
           </Typography>
-          <Typography gutterBottom paragraph>
+          <Typography gutterBottom sx={{
+            marginBottom: "16px"
+          }}>
             {t("administered_by")}
           </Typography>
-          <Typography gutterBottom paragraph>
+          <Typography gutterBottom sx={{
+            marginBottom: "16px"
+          }}>
             {t("functionality_cookies_purpose")}
           </Typography>
         </ListItem>
       </List>
-      <Typography gutterBottom paragraph>
+      <Typography gutterBottom sx={{
+        marginBottom: "16px"
+      }}>
         {t("cookies_policy_info")}
       </Typography>
       <Typography
@@ -237,7 +299,9 @@ async function PrivacyPolicy(props: Props) {
       >
         {t("use_of_personal_data")}
       </Typography>
-      <Typography gutterBottom paragraph>
+      <Typography gutterBottom sx={{
+        marginBottom: "16px"
+      }}>
         {t("personal_data_purposes")}
       </Typography>
       <List sx={{ listStyleType: "disc", pl: 5 }}>
@@ -270,7 +334,9 @@ async function PrivacyPolicy(props: Props) {
           <strong>{t("other_purposes")}</strong> {t("other_purposes_desc")}
         </ListItem>
       </List>
-      <Typography gutterBottom paragraph>
+      <Typography gutterBottom sx={{
+        marginBottom: "16px"
+      }}>
         {t("personal_data_sharing")}
       </Typography>
       <List sx={{ listStyleType: "disc", pl: 5 }}>
@@ -306,10 +372,14 @@ async function PrivacyPolicy(props: Props) {
       >
         {t("retention_of_personal_data")}
       </Typography>
-      <Typography gutterBottom paragraph>
+      <Typography gutterBottom sx={{
+        marginBottom: "16px"
+      }}>
         {t("retention_policy_paragraph1")}
       </Typography>
-      <Typography gutterBottom paragraph>
+      <Typography gutterBottom sx={{
+        marginBottom: "16px"
+      }}>
         {t("retention_policy_paragraph2")}
       </Typography>
 
@@ -323,13 +393,19 @@ async function PrivacyPolicy(props: Props) {
       >
         {t("transfer_of_personal_data")}
       </Typography>
-      <Typography gutterBottom paragraph>
+      <Typography gutterBottom sx={{
+        marginBottom: "16px"
+      }}>
         {t("transfer_info_paragraph1")}
       </Typography>
-      <Typography gutterBottom paragraph>
+      <Typography gutterBottom sx={{
+        marginBottom: "16px"
+      }}>
         {t("transfer_info_paragraph2")}
       </Typography>
-      <Typography gutterBottom paragraph>
+      <Typography gutterBottom sx={{
+        marginBottom: "16px"
+      }}>
         {t("transfer_info_paragraph3")}
       </Typography>
 
@@ -343,16 +419,24 @@ async function PrivacyPolicy(props: Props) {
       >
         {t("delete_personal_data")}
       </Typography>
-      <Typography gutterBottom paragraph>
+      <Typography gutterBottom sx={{
+        marginBottom: "16px"
+      }}>
         {t("delete_info_paragraph1")}
       </Typography>
-      <Typography gutterBottom paragraph>
+      <Typography gutterBottom sx={{
+        marginBottom: "16px"
+      }}>
         {t("delete_info_paragraph2")}
       </Typography>
-      <Typography gutterBottom paragraph>
+      <Typography gutterBottom sx={{
+        marginBottom: "16px"
+      }}>
         {t("delete_info_paragraph3")}
       </Typography>
-      <Typography gutterBottom paragraph>
+      <Typography gutterBottom sx={{
+        marginBottom: "16px"
+      }}>
         {t("delete_info_paragraph4")}
       </Typography>
 
@@ -369,21 +453,27 @@ async function PrivacyPolicy(props: Props) {
       <Typography component="h4" variant="h5" gutterBottom>
         {t("business_transactions")}
       </Typography>
-      <Typography gutterBottom paragraph>
+      <Typography gutterBottom sx={{
+        marginBottom: "16px"
+      }}>
         {t("business_transactions_paragraph")}
       </Typography>
 
       <Typography component="h4" variant="h5" gutterBottom sx={{ mt: 5 }}>
         {t("law_enforcement")}
       </Typography>
-      <Typography gutterBottom paragraph>
+      <Typography gutterBottom sx={{
+        marginBottom: "16px"
+      }}>
         {t("law_enforcement_paragraph")}
       </Typography>
 
       <Typography component="h4" variant="h5" gutterBottom sx={{ mt: 5 }}>
         {t("other_legal_requirements")}
       </Typography>
-      <Typography gutterBottom paragraph>
+      <Typography gutterBottom sx={{
+        marginBottom: "16px"
+      }}>
         {t("other_legal_requirements_paragraph")}
       </Typography>
       <List sx={{ listStyleType: "disc", pl: 5 }}>
@@ -414,83 +504,97 @@ async function PrivacyPolicy(props: Props) {
       >
         {t("security_of_personal_data")}
       </Typography>
-      <Typography gutterBottom paragraph>
+      <Typography gutterBottom sx={{
+        marginBottom: "16px"
+      }}>
         {t("security_paragraph")}
       </Typography>
 
       <Typography
         component="h2"
         variant="h3"
-        letterSpacing="-0.02em"
         gutterBottom
         sx={{
+          letterSpacing: "-0.02em",
           mt: 7,
-          mb: 5,
-        }}
-      >
+          mb: 5
+        }}>
         {t("childrens_privacy")}
       </Typography>
-      <Typography gutterBottom paragraph>
+      <Typography gutterBottom sx={{
+        marginBottom: "16px"
+      }}>
         {t("childrens_privacy_paragraph1")}
       </Typography>
-      <Typography gutterBottom paragraph>
+      <Typography gutterBottom sx={{
+        marginBottom: "16px"
+      }}>
         {t("childrens_privacy_paragraph2")}
       </Typography>
 
       <Typography
         component="h2"
         variant="h3"
-        letterSpacing="-0.02em"
         gutterBottom
         sx={{
+          letterSpacing: "-0.02em",
           mt: 7,
-          mb: 5,
-        }}
-      >
+          mb: 5
+        }}>
         {t("links_to_other_websites")}
       </Typography>
-      <Typography gutterBottom paragraph>
+      <Typography gutterBottom sx={{
+        marginBottom: "16px"
+      }}>
         {t("links_to_other_websites_paragraph1")}
       </Typography>
-      <Typography gutterBottom paragraph>
+      <Typography gutterBottom sx={{
+        marginBottom: "16px"
+      }}>
         {t("links_to_other_websites_paragraph2")}
       </Typography>
 
       <Typography
         component="h2"
         variant="h3"
-        letterSpacing="-0.02em"
         gutterBottom
         sx={{
+          letterSpacing: "-0.02em",
           mt: 7,
-          mb: 5,
-        }}
-      >
+          mb: 5
+        }}>
         {t("changes_to_privacy_policy")}
       </Typography>
-      <Typography gutterBottom paragraph>
+      <Typography gutterBottom sx={{
+        marginBottom: "16px"
+      }}>
         {t("changes_to_privacy_policy_paragraph1")}
       </Typography>
-      <Typography gutterBottom paragraph>
+      <Typography gutterBottom sx={{
+        marginBottom: "16px"
+      }}>
         {t("changes_to_privacy_policy_paragraph2")}
       </Typography>
-      <Typography gutterBottom paragraph>
+      <Typography gutterBottom sx={{
+        marginBottom: "16px"
+      }}>
         {t("changes_to_privacy_policy_paragraph3")}
       </Typography>
 
       <Typography
         component="h2"
         variant="h3"
-        letterSpacing="-0.02em"
         gutterBottom
         sx={{
+          letterSpacing: "-0.02em",
           mt: 7,
-          mb: 5,
-        }}
-      >
+          mb: 5
+        }}>
         {t("contact_us")}
       </Typography>
-      <Typography gutterBottom paragraph>
+      <Typography gutterBottom sx={{
+        marginBottom: "16px"
+      }}>
         {t("contact_us_paragraph")}
       </Typography>
 

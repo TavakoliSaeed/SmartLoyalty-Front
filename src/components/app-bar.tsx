@@ -143,7 +143,13 @@ function ResponsiveAppBar() {
 
                     {/* Desktop Menu */}
                     {isLoaded && user && (
-                        <Box sx={{ display: { xs: "none", md: "flex" }, gap: 2, mr: 2 }} flexGrow={900}>
+                        <Box
+                            sx={{
+                                flexGrow: 900,
+                                display: { xs: "none", md: "flex" },
+                                gap: 2,
+                                mr: 2
+                            }}>
                             <Button color="inherit" component={Link} href="/registration">
                                 {t("common:navigation.registrations")}
                             </Button>

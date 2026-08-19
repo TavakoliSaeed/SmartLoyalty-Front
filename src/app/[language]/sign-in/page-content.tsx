@@ -7,7 +7,7 @@ import { useAuthLoginService } from "@/services/api/services/auth";
 import useAuthActions from "@/services/auth/use-auth-actions";
 import useAuthTokens from "@/services/auth/use-auth-tokens";
 import Container from "@mui/material/Container";
-import Grid from "@mui/material/Grid2";
+import Grid from "@mui/material/Grid";
 import Typography from "@mui/material/Typography";
 import FormTextInput from "@/components/form/text-input/form-text-input";
 import * as yup from "yup";
@@ -108,8 +108,12 @@ function Form() {
     <FormProvider {...methods}>
       <Container maxWidth="xs">
         <form onSubmit={onSubmit}>
-          <Grid container spacing={2} mb={2}>
-            <Grid size={{ xs: 12 }} mt={3}>
+          <Grid container spacing={2} sx={{
+            mb: 2
+          }}>
+            <Grid size={{ xs: 12 }} sx={{
+              mt: 3
+            }}>
               <Typography variant="h6">{t("sign-in:title")}</Typography>
             </Grid>
             <Grid size={{ xs: 12 }}>
@@ -144,7 +148,9 @@ function Form() {
               <FormActions />
 
               {IS_SIGN_UP_ENABLED && (
-                <Box marginInline={1} component="span">
+                <Box component="span" sx={{
+                  marginInline: 1
+                }}>
                   <Button
                     variant="contained"
                     color="inherit"

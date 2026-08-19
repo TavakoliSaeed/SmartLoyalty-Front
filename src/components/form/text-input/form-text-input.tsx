@@ -6,7 +6,7 @@ import InputAdornment from "@mui/material/InputAdornment";
 import TextField from "@mui/material/TextField";
 import React, {ChangeEvent, forwardRef, useState} from "react";
 import {Controller, ControllerProps, FieldPath, FieldValues,} from "react-hook-form";
-import {InputBaseComponentProps} from "@mui/material/InputBase/InputBase";
+import {InputBaseComponentProps} from "@mui/material/InputBase";
 import {useTheme} from "@mui/material/styles";
 
 type TextInputProps = {
@@ -72,25 +72,27 @@ const TextInput = forwardRef<
             minRows={props.minRows}
             maxRows={props.maxRows}
             placeholder={props.placeholder}
-            InputProps={{
-                readOnly: props.readOnly,
-                inputComponent: props.inputComponent,
-                [isRtl ? "startAdornment" : "endAdornment"]: props.type === "password" || props.name === "username" && (
-                    <InputAdornment
-                        position={isRtl ? "start" : "end"}
-                    >
-                        {
-                            props.type === "password" && (<IconButton
-                                aria-label="toggle password visibility"
-                                onClick={handleClickShowPassword}
-                                onMouseDown={handleMouseDownPassword}
-                                edge={isRtl ? "start" : "end"}
-                            >
-                                {isShowPassword ? <VisibilityOff/> : <Visibility/>}
-                            </IconButton>)
-                        }
-                    </InputAdornment>
-                ),
+            slotProps={{
+                input: {
+                    readOnly: props.readOnly,
+                    inputComponent: props.inputComponent,
+                    [isRtl ? "startAdornment" : "endAdornment"]: props.type === "password" || props.name === "username" && (
+                        <InputAdornment
+                            position={isRtl ? "start" : "end"}
+                        >
+                            {
+                                props.type === "password" && (<IconButton
+                                    aria-label="toggle password visibility"
+                                    onClick={handleClickShowPassword}
+                                    onMouseDown={handleMouseDownPassword}
+                                    edge={isRtl ? "start" : "end"}
+                                >
+                                    {isShowPassword ? <VisibilityOff/> : <Visibility/>}
+                                </IconButton>)
+                            }
+                        </InputAdornment>
+                    ),
+                }
             }}
         />
     );

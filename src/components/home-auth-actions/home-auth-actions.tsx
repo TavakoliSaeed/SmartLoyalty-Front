@@ -13,7 +13,12 @@ export default function HomeAuthActions() {
     if (!isLoaded || user) return null;
 
     return (
-        <Box display="flex" gap={2} mt={3}>
+        <Box
+            sx={{
+                display: "flex",
+                gap: 2,
+                mt: 3
+            }}>
             <Button variant="contained" color="primary" component={Link} href="/sign-in">
                 {t("common:navigation.signIn")}
             </Button>

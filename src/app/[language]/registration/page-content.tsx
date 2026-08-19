@@ -50,55 +50,57 @@ function RegistrationsPage() {
 
   return (
       <Container maxWidth="lg">
-        <Box
-            display="flex"
-            justifyContent="space-between"
-            alignItems="center"
-            sx={{ mt: 3, mb: 2 }}
-        >
-          <Typography variant="h4">{t("title")}</Typography>
-          {score !== null && (
-              <Typography variant="h6">
-                {t("totalScore")}: {score}
-              </Typography>
+          <Box
+              sx={{
+                  display: "flex",
+                  justifyContent: "space-between",
+                  alignItems: "center",
+                  mt: 3,
+                  mb: 2
+              }}>
+            <Typography variant="h4">{t("title")}</Typography>
+            {score !== null && (
+                <Typography variant="h6">
+                  {t("totalScore")}: {score}
+                </Typography>
+            )}
+          </Box>
+
+          <Button
+              variant="contained"
+              color="primary"
+              component={Link}
+              href="/registration/add"
+              sx={{ mb: 2 }}
+          >
+            {t("actions.registerAgain")}
+          </Button>
+
+          {loading ? (
+              <Typography>{t("loading")}</Typography>
+          ) : (
+              <Box sx={{ width: "100%"}}>
+                  <Paper>
+                      <Table>
+                          <TableHead>
+                              <TableRow>
+                                  <TableCell align={"center"}>{t("table.identityCode")}</TableCell>
+                                  <TableCell align={"center"}>{t("table.score")}</TableCell>
+                              </TableRow>
+                          </TableHead>
+                          <TableBody>
+                              {registrations.length > 0 &&
+                                  registrations.map((reg) => (
+                                      <TableRow key={reg.ID}>
+                                          <TableCell align={"center"}>{reg.code?.IdentityCode}</TableCell>
+                                          <TableCell align={"center"}>{reg.code?.Score}</TableCell>
+                                      </TableRow>
+                                  ))}
+                          </TableBody>
+                      </Table>
+                  </Paper>
+              </Box>
           )}
-        </Box>
-
-        <Button
-            variant="contained"
-            color="primary"
-            component={Link}
-            href="/registration/add"
-            sx={{ mb: 2 }}
-        >
-          {t("actions.registerAgain")}
-        </Button>
-
-        {loading ? (
-            <Typography>{t("loading")}</Typography>
-        ) : (
-            <Box sx={{ width: "100%"}}>
-                <Paper>
-                    <Table>
-                        <TableHead>
-                            <TableRow>
-                                <TableCell align={"center"}>{t("table.identityCode")}</TableCell>
-                                <TableCell align={"center"}>{t("table.score")}</TableCell>
-                            </TableRow>
-                        </TableHead>
-                        <TableBody>
-                            {registrations.length > 0 &&
-                                registrations.map((reg) => (
-                                    <TableRow key={reg.ID}>
-                                        <TableCell align={"center"}>{reg.code?.IdentityCode}</TableCell>
-                                        <TableCell align={"center"}>{reg.code?.Score}</TableCell>
-                                    </TableRow>
-                                ))}
-                        </TableBody>
-                    </Table>
-                </Paper>
-            </Box>
-        )}
       </Container>
   );
 }
